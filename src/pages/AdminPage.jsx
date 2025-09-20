@@ -84,7 +84,7 @@ const AdminPage = () => {
   const handleEditSweet = async (data) => {
     setIsSubmitting(true);
     try {
-      await sweetsAPI.update(selectedSweet.id, {
+      await sweetsAPI.update(selectedSweet._id, {
         ...data,
         price: parseFloat(data.price),
         quantity: parseInt(data.quantity)
@@ -259,11 +259,12 @@ const AdminPage = () => {
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {filteredSweets.map((sweet) => (
-            <div key={sweet.id} className="relative">
+            <div key={sweet._id} className="relative">
               <SweetCard
                 sweet={sweet}
                 onUpdate={fetchSweets}
                 onEdit={openEditModal}
+                isAdminView = {true}
               />
               {sweet.quantity <= 5 && (
                 <div className="absolute top-2 right-2">

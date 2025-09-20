@@ -5,7 +5,7 @@ import { sweetsAPI } from '../../services/api';
 import toast from 'react-hot-toast';
 import { ShoppingCart, Edit, Trash2, Package, Star, DollarSign } from 'lucide-react';
 
-const SweetCard = ({ sweet, onUpdate, onEdit }) => {
+const SweetCard = ({ sweet, onUpdate, onEdit, isAdminView = false }) => {
   const { user } = useAuth();
   const [isLoading, setIsLoading] = useState(false);
 
@@ -14,7 +14,7 @@ const SweetCard = ({ sweet, onUpdate, onEdit }) => {
     
     setIsLoading(true);
     try {
-      await sweetsAPI.purchase(sweet.id);
+      await sweetsAPI.purchase(sweet._id);
       toast.success(`Purchased ${sweet.name}! 🍭`, {
         duration: 3000,
         style: {
@@ -35,7 +35,7 @@ const SweetCard = ({ sweet, onUpdate, onEdit }) => {
     
     setIsLoading(true);
     try {
-      await sweetsAPI.delete(sweet.id);
+      await sweetsAPI.delete(sweet._id);
       toast.success('Sweet deleted successfully');
       onUpdate();
     } catch (error) {
@@ -112,7 +112,7 @@ const SweetCard = ({ sweet, onUpdate, onEdit }) => {
             {sweet.quantity === 0 ? 'Out of Stock' : 'Purchase'}
           </Button>
 
-          {user?.role === 'admin' && (
+          { isAdminView && user?.role === 'admin' && (
             <div className="flex space-x-2">
               <Button
                 variant="ghost"
