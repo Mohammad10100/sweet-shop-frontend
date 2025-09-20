@@ -253,7 +253,7 @@ const HomePage = () => {
               <Link to="/register">
                 <Button 
                   size="lg" 
-                  className="px-8 py-4 text-lg bg-white text-pink-600 hover:bg-gray-100"
+                  className="px-8 py-4 text-lg text-pink-600 hover:bg-gray-100"
                 >
                   Start Shopping Now
                   <ArrowRight className="h-5 w-5 ml-2" />
