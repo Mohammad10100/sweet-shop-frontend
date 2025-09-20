@@ -4,6 +4,7 @@ import { useAuth } from '../../context/AuthContext';
 import Button from '../ui/Button';
 import { ShoppingBag, User, LogOut, Settings, Home } from 'lucide-react';
 import clsx from 'clsx';
+import logo from '../../assets/logo.jpeg';
 
 const Header = () => {
   const { user, logout, isAuthenticated } = useAuth();
@@ -20,11 +21,12 @@ const Header = () => {
   return (
     <header className="bg-white shadow-lg border-b sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
+        <div className="flex justify-between items-center h-16 group-hover:transform size-1.500 transition-transform">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-3 group">
-            <div className="p-2 bg-pink-100 rounded-lg group-hover:bg-pink-200 transition-colors">
-              <ShoppingBag className="h-6 w-6 text-pink-600" />
+            <div className="p-2 bg-pink-600 rounded-lg group-hover:bg-pink-400 transition-colors">
+              <div className="h-6 w-6 text-pink-600 transition-all duration-300 group-hover:h-8"></div>
+              <img className=' size-12 shrink-0 rounded-full  transition-transform duration-300 group-hover:translate-y-1 ' src={logo} alt="" />
             </div>
             <span className="text-xl font-bold bg-gradient-to-r from-pink-600 to-purple-600 bg-clip-text text-transparent">
               Sweet Shop
