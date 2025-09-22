@@ -1,4 +1,9 @@
 # 🍬 [Sweet Store Frontend](https://sweet-shop-iota.vercel.app/)
+
+## Credentials
+- test@example.com, Password123
+- admin@example.com, AdminPassword123
+
 This is the **frontend** of the Sweet Store application, built using **React + Vite + Tailwind CSS**.  
 It provides the user interface for browsing sweets, managing stock (for admins), and handling authentication.  
 
